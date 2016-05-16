@@ -1,8 +1,14 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
 
 class Bnb < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, 'super secret'
+  register Sinatra::Flash
+
   get '/' do
     'Hello Bnb!'
   end
@@ -12,8 +18,12 @@ class Bnb < Sinatra::Base
   end
 
   post '/users' do
-    User.create(name: params[:name], email: params[:email], password: params[:password])
-    redirect '/'
+    user = User.create(firstname: params[:firstname], lastname: params[:lastname], email: params[:email], password: params[:password])
+    if user.save
+      redirect '/'
+    else
+      flash[:notice] = "Must have unique email"
+    end
   end
 
   # start the server if ruby file executed directly

@@ -1,6 +1,10 @@
 <form action="/users" method="post">
-  name     <input type="text" name="name">
-  email    <input type="text" name="email">
-  password <input type="text" name="password">
-           <input type="submit" value="Submit">
+  first name   <input type="text" name="firstname">
+  last name    <input type="text" name="lastname">
+  email        <input type="text" name="email">
+  password     <input type="text" name="password">
+               <input type="submit" value="Submit">
 </form>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
