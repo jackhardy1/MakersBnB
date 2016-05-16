@@ -1,2 +1,2 @@
 # MakersBnB
-Contributors: 
+Contributors: Jack, Elia, Matt, Macey
