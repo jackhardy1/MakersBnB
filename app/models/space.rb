@@ -5,9 +5,9 @@ class Space
   include DataMapper::Resource
 
   property :id, Serial
-  property :name, Text
-  property :desciption, Text
-  property :price, Text
+  property :name, String
+  property :description, String
+  property :price, Integer
 
   belongs_to :user
 end
