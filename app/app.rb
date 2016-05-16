@@ -23,8 +23,10 @@ class Bnb < Sinatra::Base
       redirect '/'
     elsif User.first(email: params[:email])
       flash[:notice] = "Must have unique email"
+      redirect '/sign-up'
     else
       flash[:notice] = "Email is not valid"
+      redirect '/sign-up'      
     end
   end
 
