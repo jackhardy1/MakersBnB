@@ -21,8 +21,10 @@ class Bnb < Sinatra::Base
     user = User.create(firstname: params[:firstname], lastname: params[:lastname], email: params[:email], password: params[:password])
     if user.save
       redirect '/'
-    else
+    elsif User.first(email: params[:email])
       flash[:notice] = "Must have unique email"
+    else
+      flash[:notice] = "Email is not valid"
     end
   end
 
