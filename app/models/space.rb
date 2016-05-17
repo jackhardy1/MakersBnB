@@ -9,5 +9,5 @@ class Space
   property :description, String
   property :price, Integer
 
-  belongs_to :user
+  # belongs_to :user
 end
