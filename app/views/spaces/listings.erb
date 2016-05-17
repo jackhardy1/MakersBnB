@@ -1,0 +1,12 @@
+<ul id='spaces'>
+  <% Space.reverse_each do |space| %>
+  <li>
+    Name of your property: <%= space.name %>
+    Description: <%= space.description %>
+    Price per night: <%= space.price %>
+  </li>
+<% end %>
+</ul>
+<form action="/spaces/new "method="get">
+  <input type="submit"  value="list a space">
+</form>
