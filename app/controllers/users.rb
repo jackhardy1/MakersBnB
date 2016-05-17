@@ -22,8 +22,14 @@ class Bnb < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(email: params[:email], password: params[:password])
-
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash[:notice] = "Incorrect login details"
+      redirect('/sign-in')
+    end
   end
 
   # start the server if ruby file executed directly

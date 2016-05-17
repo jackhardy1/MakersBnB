@@ -12,7 +12,8 @@ class Bnb < Sinatra::Base
   set :root, File.join(File.dirname(__FILE__), '')
 
   get '/' do
-    'Hello Bnb!'
+    current_user
+    erb :index
   end
 
 

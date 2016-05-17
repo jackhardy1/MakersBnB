@@ -22,3 +22,10 @@ def incorrect_email
   fill_in :password, with: 'password123'
   click_button 'Submit'
 end
+
+def incorrect_password
+  visit '/sign-in'
+  fill_in :email, with: 'matthew@theinternet.com'
+  fill_in :password, with: 'boop'
+  click_button 'Log in'
+end
