@@ -1,7 +1,7 @@
 class Bnb < Sinatra::Base
 
   get '/sign-up' do
-    erb :signup
+    erb :'users/signup'
   end
 
   post '/users' do
@@ -15,6 +15,15 @@ class Bnb < Sinatra::Base
       flash[:notice] = "Email is not valid"
       redirect '/sign-up'
     end
+  end
+
+  get '/sign-in' do
+    erb :'users/signin'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+
   end
 
   # start the server if ruby file executed directly
