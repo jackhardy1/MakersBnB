@@ -4,6 +4,8 @@ class User
 
   include DataMapper::Resource
 
+  has n, :spaces
+
   property :id,                Serial
   property :firstname,         String
   property :lastname,          String
