@@ -4,10 +4,12 @@ require 'dm-postgres-adapter'
 class Space
   include DataMapper::Resource
 
-  property :id, Serial
-  property :name, Text
-  property :desciption, Text
-  property :price, Text
-
   belongs_to :user
+
+  property :id, Serial
+  property :name, String
+  property :description, String
+  property :price, Integer
+
+
 end
