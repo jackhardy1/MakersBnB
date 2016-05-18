@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative 'web_helpers'
 require './app/models/user'
 
 feature 'Enter user details on sign up' do
