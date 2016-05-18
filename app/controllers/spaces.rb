@@ -2,7 +2,7 @@
 class Bnb < Sinatra::Base
 
   get '/spaces' do
-  # @spaces = Space.all
+    current_user
     erb :'spaces/listings'
   end
 
@@ -33,6 +33,7 @@ class Bnb < Sinatra::Base
   end
 
   get '/spaces/:id' do
+    current_user
     @space = Space.get(params[:space_id])
     erb :'spaces/details'
   end
