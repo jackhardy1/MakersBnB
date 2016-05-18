@@ -8,5 +8,6 @@ class Space
 
   belongs_to :user
   has n, :bookings
+  has n, :available_periods
 
 end
