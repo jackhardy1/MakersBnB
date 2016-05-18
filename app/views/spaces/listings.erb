@@ -4,9 +4,9 @@
       Name of your property: <%= space.name %>
       Description: <%= space.description %>
       Price per night: <%= space.price %>
-      <form action="/booking/new" method="post">
+      <form action="/spaces/:id" method="get">
         <input type="hidden" name="space_id" value="<%= space.id %>">
-        <input type="submit"  value="book">
+        <input type="submit" name="view details" value="view details">
       </form>
     </li>
   <% end %>

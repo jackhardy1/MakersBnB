@@ -1,6 +1,3 @@
-require 'spec_helper'
-require './app/models/user'
-
 feature 'Enter user details on sign up' do
 
   scenario 'User can enter details' do
