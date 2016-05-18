@@ -14,3 +14,7 @@
   <input type='date' name='end_date'>
   <input type='submit' value='add space'>
 </form>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
