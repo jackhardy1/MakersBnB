@@ -5,11 +5,11 @@ class Bnb < Sinatra::Base
      user = User.get(session[:user_id])
      booking = Booking.create(user_id: session[:user_id], space_id: space.id)
      user.bookings << booking
-     p user.save
+     user.save
      space.bookings << booking
      space.save
-     redirect '/bookings'
-   end
+     redirect '/spaces'
+  end
 
    get '/bookings' do
      erb :'bookings/new'

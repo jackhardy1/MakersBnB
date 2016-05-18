@@ -1,0 +1,16 @@
+<ul id='requests'> Requests
+  <% Booking.each do |booking| %>
+    <li>
+      Name of space: <%= booking.space.name %>
+      Name of guest: <%= booking.user.firstname %> <%= booking.user.lastname %>
+      Email of guest: <%= booking.user.email %>
+      Confirmed?: <%= booking.confirmed %>
+
+      <form action='/request/:id' method="post">
+        <input type="hidden" name="booking_id" value="<%= booking.id %>">
+        <input type="submit"  value="view request">
+      </form>
+
+    </li>
+    <% end %>
+</ul>

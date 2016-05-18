@@ -1,11 +1,28 @@
 class Bnb < Sinatra::Base
 
-  post '/requests' do
-    space = Space.get(params[:space_id])
-    user = User.get(session[:user_id])
-    booking = Booking.create(user_id: session[:user_id], space_id: space.id)
-    user.bookings << booking
-    p user.save
-    space.bookings << booking
-    space.save
-    redirect '/request/new'
+  get '/requests' do
+    erb :'requests/view'
+  end
+
+  post '/request/:id' do
+    session[:booking_id] = params[:booking_id]
+    redirect '/request/:id'
+  end
+
+  get '/request/:id' do
+    @booking = Booking.get(session[:booking_id])
+    erb :'requests/confirm'
+  end
+
+  post '/requests/confirm' do
+    booking = Booking.get(session[:booking_id])
+    booking.update(confirmed: true)
+    redirect '/requests'
+  end
+
+  post '/requests/deny' do
+    booking = Booking.get(session[:booking_id])
+    booking.destroy
+    redirect '/requests'
+  end
+end

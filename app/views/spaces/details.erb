@@ -1,11 +1,15 @@
 <ul id='spaces/details'>
-    <li>
-      Name of your property: <%= @space.name %>
-      Description: <%= @space.description %>
-      Price per night: <%= @space.price %>
-      <form action="/booking/new" method="post">
-        <input type="hidden" name="space_id" value="<%= @space.id %>">
-        <input type="submit"  value="request to book">
-      </form>
-    </li>
+  <li>
+    Name of your property: <%= @space.name %>
+    Description: <%= @space.description %>
+    Price per night: <%= @space.price %>
+
+  <% if @current_user %>
+    <form action="/booking/new" method="post">
+      <input type="hidden" name="space_id" value="<%= @space.id %>">
+      <input type="submit"  value="request to book">
+    </form>
+  <% end %>
+
+  </li>
 </ul>
