@@ -29,3 +29,11 @@ def incorrect_password
   fill_in :password, with: 'boop'
   click_button 'Log in'
 end
+
+def list_a_space
+  click_button('list a space')
+  fill_in :name, with: 'makers'
+  fill_in :description, with: 'makers'
+  fill_in :price, with: 10
+  click_button 'add space'
+end
