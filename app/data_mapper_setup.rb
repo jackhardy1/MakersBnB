@@ -5,6 +5,7 @@ require 'dm-postgres-adapter'
 require_relative 'models/user'
 require_relative 'models/space'
 require_relative 'models/booking'
+require_relative 'models/available_period'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/makersbnb_#{ENV['RACK_ENV']}")
 DataMapper.finalize
