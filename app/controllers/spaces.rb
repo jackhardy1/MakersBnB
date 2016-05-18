@@ -11,10 +11,12 @@ class Bnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    space = Space.create(name: params[:name],
-         description: params[:description],
-         price: params[:price])
-         space.save
-         redirect '/spaces'
+     user = session[:user_id]
+     space = Space.create(name: params[:name],
+     description: params[:description],
+     price: params[:price], user_id: session[:user_id])
+     space.save
+     p space
+     redirect '/spaces'
   end
 end
