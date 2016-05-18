@@ -19,4 +19,9 @@ class Bnb < Sinatra::Base
      p space
      redirect '/spaces'
   end
+
+  get '/spaces/:id' do
+    @space = Space.get(params[:space_id])
+    erb :'spaces/details'
+  end
 end
