@@ -4,7 +4,6 @@ class User
 
   include DataMapper::Resource
 
-  has n, :spaces
 
   property :id,                Serial
   property :firstname,         String
@@ -12,6 +11,9 @@ class User
   property :email,             String, unique: true, format: :email_address
   property :password_digest,   String, length: 60
 
+  has n, :spaces
+  has n, :bookings
+  
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
   end

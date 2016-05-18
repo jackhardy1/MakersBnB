@@ -1,0 +1,11 @@
+<ul id='booking'>
+  <% Booking.reverse_each do |booking| %>
+    <li>
+      Booking id: <%= booking.id %>
+      <br>
+      Booking user name: <%= booking.user.firstname %>
+      <br>
+      Booking space name: <%= booking.space.name %>
+    </li>
+  <% end %>
+</ul>
