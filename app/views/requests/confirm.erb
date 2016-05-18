@@ -1,0 +1,14 @@
+<%= @booking.user.firstname %>
+<br>
+<%= @booking.user.email %>
+<br>
+
+<form action="/requests/confirm" method="post">
+  <input type="hidden" name="booking_id" value="<%= @booking.id %>">
+  <input type="submit"  value="confirm request">
+</form>
+
+<form action="/requests/deny" method="post">
+  <input type="hidden" name="booking_id" value="<%= @booking.id %>">
+  <input type="submit"  value="deny request">
+</form>

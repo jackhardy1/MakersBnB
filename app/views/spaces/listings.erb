@@ -1,3 +1,11 @@
+<% if @current_user %>
+  <h2>Hello <%= @current_user.firstname %>!</h2>
+  <form action="/sessions" method="post">
+    <input type='hidden' name='_method' value='delete'>
+    <button type="submit">Sign out</button>
+  </form>
+<% end %>
+
 <ul id='spaces'>
   <% Space.reverse_each do |space| %>
     <li>
@@ -11,6 +19,13 @@
     </li>
   <% end %>
 </ul>
-<form action="/spaces/new "method="get">
-  <input type="submit"  value="list a space">
-</form>
+
+<% if @current_user %>
+  <form action="/spaces/new" method="get">
+    <input type="submit"  value="list a space">
+  </form>
+
+  <form action="/requests" method="get">
+    <input type="submit"  value="view requests">
+  </form>
+<% end %>
