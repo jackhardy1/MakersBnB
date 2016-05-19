@@ -9,20 +9,22 @@ feature 'request to book' do
     expect(page).to have_content("makers")
     click_button('view details')
     click_button('request to book')
-    expect(page).to have_content('Booking confirmed? false')
+    click_button('view requests')
+    expect(page).to have_content('Confirmed?')
   end
 
   scenario 'host confirms request' do
     enter_details_and_sign_up
     click_button("View spaces")
     list_a_space
-    click_button('sign out')
-    enter_details_and_sign_up
+    click_button('Sign out')
+    enter_details_and_sign_up_guest
 
     click_button('View spaces')
     expect(page).to have_content("makers")
     click_button('view details')
     click_button('request to book')
-    expect(page).to have_content('Booking confirmed? false')
+    click_button('view requests')
+    expect(page).to have_content('Confirmed?')
   end
 end

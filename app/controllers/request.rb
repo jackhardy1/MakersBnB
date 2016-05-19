@@ -1,6 +1,7 @@
 class Bnb < Sinatra::Base
 
   get '/requests' do
+    current_user
     erb :'requests/view'
   end
 
@@ -10,6 +11,7 @@ class Bnb < Sinatra::Base
   end
 
   get '/request/:id' do
+    current_user
     @booking = Booking.get(session[:booking_id])
     erb :'requests/confirm'
   end
