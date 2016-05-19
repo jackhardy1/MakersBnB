@@ -29,15 +29,23 @@ end
       expect(page).to have_content('Confirmed?')
     end
 
-    scenario 'confirmed request sends confirmation email' do
-
-    end
-end
-  feature 'host denies request' do
-    scenario 'request is deleted from my requests' do
-
-    end
-
-    scenario 'denied request sends denial email' do
+  scenario 'host confirms request' do
+    user = User.create(id: 1, firstname: 'jack', lastname: 'hardy', email: 'jack@jack.com', password: 'jack')
+    space = Space.create(name: 'makers',description: 'makers',price: 10, user_id: 1)
+    enter_details_and_sign_up
+    click_button("View spaces")
+    list_a_space
+    click_button('sign out')
+    enter_details_and_sign_up_guest
+    click_button('View spaces')
+    expect(page).to have_content("makers")
+    click_button('view details')
+    click_button('request to book')
+    click_button('sign out')
+    enter_details_and_sign_up
+    click_button('View spaces')
+    click_button('view requests')
+    click_button('confirm request')
+    expect(page).to have_content('Confirmed?: true')
   end
 end
