@@ -8,6 +8,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'dm-validations'
 gem 'sinatra-flash'
+gem 'rest-client'
 
 group :test do
   gem 'rspec-sinatra'
