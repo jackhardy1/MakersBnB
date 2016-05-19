@@ -1,16 +1,37 @@
-<ul id='requests'> Requests
-  <% Booking.each do |booking| %>
-    <li>
-      Name of space: <%= booking.space.name %>
-      Name of guest: <%= booking.user.firstname %> <%= booking.user.lastname %>
-      Email of guest: <%= booking.user.email %>
-      Confirmed?: <%= booking.confirmed %>
+<ul id='requests'> <h1>Requests that I've made</h1>
+  <% if @current_user %>
+    <% @current_user.bookings.each do |booking| %>
+      <li>
+        Name of space: <%= booking.space.name %>
+        Name of guest: <%= booking.user.firstname %> <%= booking.user.lastname %>
+        Email of guest: <%= booking.user.email %>
+        Confirmed?: <%= booking.confirmed %>
 
-      <form action='/request/:id' method="post">
-        <input type="hidden" name="booking_id" value="<%= booking.id %>">
-        <input type="submit"  value="view request">
-      </form>
+        <form action='/request/:id' method="post">
+          <input type="hidden" name="booking_id" value="<%= booking.id %>">
+          <input type="submit"  value="view request details">
+        </form>
 
-    </li>
+      </li>
+      <% end %>
+    <% end %>
+</ul>
+
+<ul id='requests'> <h1>Requests for my spaces</h1>
+  <% if @current_user %>
+    <% @current_user.spaces.bookings.each do |booking| %>
+      <li>
+        Name of space: <%= booking.space.name %>
+        Name of guest: <%= booking.user.firstname %> <%= booking.user.lastname %>
+        Email of guest: <%= booking.user.email %>
+        Confirmed?: <%= booking.confirmed %>
+
+        <form action='/request/:id' method="post">
+          <input type="hidden" name="booking_id" value="<%= booking.id %>">
+          <input type="submit"  value="view request details">
+        </form>
+
+      </li>
+      <% end %>
     <% end %>
 </ul>

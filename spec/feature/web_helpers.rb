@@ -51,5 +51,7 @@ def list_a_space
   fill_in :name, with: 'makers'
   fill_in :description, with: 'makers'
   fill_in :price, with: 10
+  fill_in :start_date, with: '2017,05,18'
+  fill_in :end_date, with: '2017,05,20'
   click_button 'add space'
 end
