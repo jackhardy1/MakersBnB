@@ -28,16 +28,17 @@ end
       click_button('view requests')
       expect(page).to have_content('Confirmed?')
     end
-
-    scenario 'confirmed request sends confirmation email' do
-
-    end
-end
-  feature 'host denies request' do
-    scenario 'request is deleted from my requests' do
-
-    end
-
-    scenario 'denied request sends denial email' do
   end
-end
+#
+#     scenario 'confirmed request sends confirmation email' do
+#
+#     end
+# end
+#   feature 'host denies request' do
+#     scenario 'request is deleted from my requests' do
+#
+#     end
+#
+#     scenario 'denied request sends denial email' do
+#   end
+# end

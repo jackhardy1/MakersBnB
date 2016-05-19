@@ -1,6 +1,5 @@
 require "restclient"
 
-
 class Bnb < Sinatra::Base
 
   enable :sessions
