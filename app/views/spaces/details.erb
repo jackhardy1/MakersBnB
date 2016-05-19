@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
 
 <ul id='spaces/details'>
   <li>
@@ -8,7 +11,7 @@
   <% if @current_user %>
     <form action="/booking/new" method="post">
       <input type="hidden" name="space_id" value="<%= @space.id %>">
-      <input type='date' name='date'>
+      <input type='date' name='date' min='<%= DateTime.now.to_date %>' required>
       <input type="submit"  value="request to book">
     </form>
   <% end %>
