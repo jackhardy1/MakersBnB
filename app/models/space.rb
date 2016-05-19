@@ -15,11 +15,12 @@ class Space
     bookings = Booking.all(space_id: space_id)
     def_booked = []
     bookings.each do |booking|
-      def_booked << booking.date
+      if booking.confirmed == true
+        def_booked << booking.date
+      end
     end
     available_period = AvailablePeriod.get(space_id)
     date_range = (available_period.start_date..available_period.end_date).to_a
     date_range.include?(date) && !(def_booked.include?(date))
   end
-
 end
