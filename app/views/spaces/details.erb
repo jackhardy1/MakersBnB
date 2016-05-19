@@ -1,3 +1,4 @@
+
 <ul id='spaces/details'>
   <li>
     Name of your property: <%= @space.name %>
@@ -7,6 +8,7 @@
   <% if @current_user %>
     <form action="/booking/new" method="post">
       <input type="hidden" name="space_id" value="<%= @space.id %>">
+      <input type='date' name='date'>
       <input type="submit"  value="request to book">
     </form>
   <% end %>
