@@ -9,6 +9,7 @@ gem 'bcrypt'
 gem 'dm-validations'
 gem 'sinatra-flash'
 gem 'rest-client'
+gem 'dotenv'
 
 group :test do
   gem 'rspec-sinatra'

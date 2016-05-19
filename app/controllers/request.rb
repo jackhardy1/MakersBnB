@@ -1,4 +1,4 @@
-class Bnb < Sinatra::Base
+ class Bnb < Sinatra::Base
 
   get '/requests' do
     current_user
