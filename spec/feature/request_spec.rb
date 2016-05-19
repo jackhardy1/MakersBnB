@@ -12,19 +12,40 @@ feature 'request to book' do
     click_button('view requests')
     expect(page).to have_content('Confirmed?')
   end
+end
+
+  feature 'host confirms request' do
+    scenario 'request shows up with confirmed = true' do
+      enter_details_and_sign_up
+      click_button("View spaces")
+      list_a_space
+      click_button('Sign out')
+      enter_details_and_sign_up_guest
+      click_button('View spaces')
+      expect(page).to have_content("makers")
+      click_button('view details')
+      click_button('request to book')
+      click_button('view requests')
+      expect(page).to have_content('Confirmed?')
+    end
 
   scenario 'host confirms request' do
+    user = User.create(id: 1, firstname: 'jack', lastname: 'hardy', email: 'jack@jack.com', password: 'jack')
+    space = Space.create(name: 'makers',description: 'makers',price: 10, user_id: 1)
     enter_details_and_sign_up
     click_button("View spaces")
     list_a_space
-    click_button('Sign out')
+    click_button('sign out')
     enter_details_and_sign_up_guest
-
     click_button('View spaces')
     expect(page).to have_content("makers")
     click_button('view details')
     click_button('request to book')
+    click_button('sign out')
+    enter_details_and_sign_up
+    click_button('View spaces')
     click_button('view requests')
-    expect(page).to have_content('Confirmed?')
+    click_button('confirm request')
+    expect(page).to have_content('Confirmed?: true')
   end
 end

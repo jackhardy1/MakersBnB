@@ -55,3 +55,20 @@ def list_a_space
   fill_in :end_date, with: '2017,05,20'
   click_button 'add space'
 end
+
+def list_space_and_sign_in_as_different_user
+  enter_details_and_sign_up
+  click_button('View spaces')
+  list_a_space
+  click_button('Sign out')
+  enter_details_and_sign_up_guest
+  click_button('View spaces')
+end
+
+def request_to_book_space_and_view_requests
+  enter_details_and_sign_up
+  click_button('View spaces')
+  click_button('view details')
+  click_button('request to book')
+  click_button('view requests')
+end
