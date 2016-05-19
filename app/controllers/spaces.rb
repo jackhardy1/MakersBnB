@@ -25,9 +25,6 @@ class Bnb < Sinatra::Base
     elsif params[:start_date] > params[:end_date]
       flash[:notice] = 'End date should be after the start date'
       redirect '/spaces/new'
-      # elsif params[:start_date] < DateTime.now.to_date.to_s
-      #   flash[:notice] = 'Start date should be after today'
-      #   redirect '/spaces/new'
     end
 
   end
