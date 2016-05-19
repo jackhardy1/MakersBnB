@@ -4,7 +4,7 @@
     Description: <%= @space.description %>
     Price per night: <%= @space.price %>
 
-  <% if @current_user %>
+  <% if @current_user.id != @space.user_id %>
     <form action="/booking/new" method="post">
       <input type="hidden" name="space_id" value="<%= @space.id %>">
       <input type="submit"  value="request to book">
