@@ -87,6 +87,8 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (11.1.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     simplecov (0.11.2)
@@ -126,6 +128,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-validations
   rake
+  rest-client
   rspec-sinatra
   sinatra
   sinatra-flash

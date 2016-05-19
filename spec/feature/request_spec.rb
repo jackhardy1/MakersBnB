@@ -12,19 +12,32 @@ feature 'request to book' do
     click_button('view requests')
     expect(page).to have_content('Confirmed?')
   end
+end
 
-  scenario 'host confirms request' do
-    enter_details_and_sign_up
-    click_button("View spaces")
-    list_a_space
-    click_button('Sign out')
-    enter_details_and_sign_up_guest
+  feature 'host confirms request' do
+    scenario 'request shows up with confirmed = true' do
+      enter_details_and_sign_up
+      click_button("View spaces")
+      list_a_space
+      click_button('Sign out')
+      enter_details_and_sign_up_guest
+      click_button('View spaces')
+      expect(page).to have_content("makers")
+      click_button('view details')
+      click_button('request to book')
+      click_button('view requests')
+      expect(page).to have_content('Confirmed?')
+    end
 
-    click_button('View spaces')
-    expect(page).to have_content("makers")
-    click_button('view details')
-    click_button('request to book')
-    click_button('view requests')
-    expect(page).to have_content('Confirmed?')
+    scenario 'confirmed request sends confirmation email' do
+
+    end
+end
+  feature 'host denies request' do
+    scenario 'request is deleted from my requests' do
+
+    end
+
+    scenario 'denied request sends denial email' do
   end
 end

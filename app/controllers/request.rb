@@ -19,11 +19,13 @@ class Bnb < Sinatra::Base
   post '/requests/confirm' do
     booking = Booking.get(session[:booking_id])
     booking.update(confirmed: true)
+    booking.send_confirmation_email
     redirect '/requests'
   end
 
   post '/requests/deny' do
     booking = Booking.get(session[:booking_id])
+    booking.send_denial_email
     booking.destroy
     redirect '/requests'
   end
