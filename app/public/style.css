@@ -1,0 +1,24 @@
+
+  .jambothron{
+    background-color: #d5d5e7;
+    color: white;
+  }
+  .tab-container {
+    background-color: 1px solid #add;
+    border-right: 1px solid #add;
+    padding-bottom: 1px solid #add;
+  }
+  .nav-tabs {
+    margin-bottom: 0;
+  }
+.form-group{
+
+}
+body {
+  background: url("http://freelancefolder.com/wp-content/uploads/relax.jpg") no-repeat;
+  background-size: cover;
+}
+
+.container {
+
+}
