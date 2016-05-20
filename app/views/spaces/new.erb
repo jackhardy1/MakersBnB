@@ -1,5 +1,6 @@
 <h1>spaces go here</h1>
 <form action="/spaces/new" method="post">
+
   <label for="name">Name</label>
   <input type='text' name='name'>
 
@@ -8,9 +9,15 @@
 
   <label for="price">Price</label>
   <input type='text' name='price'>
+
+  <label for="image">Image</label>
+  <input type="file" accept="image/*" name="image" >
+
   <label for='start_date'>Available on:</label>
   <input type='date' name='start_date' min='<%= DateTime.now.to_date %>'>
+
   <label for='end_date'>Available until:</label>
   <input type='date' name='end_date'>
   <input type='submit' value='add space'>
+
 </form>

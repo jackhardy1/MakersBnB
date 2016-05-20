@@ -7,6 +7,7 @@
     Name of your property: <%= @space.name %>
     Description: <%= @space.description %>
     Price per night: <%= @space.price %>
+    <img src="<%= @space.image %>" alt="HTML5 Icon" style="width:128px;height:128px;">
 
   <% if @current_user.id != @space.user_id %>
     <form action="/booking/new" method="post">

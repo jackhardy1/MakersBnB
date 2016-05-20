@@ -14,6 +14,7 @@ class Bnb < Sinatra::Base
      user = session[:user_id]
      space = Space.create(name: params[:name],
                     description: params[:description],
+                    image: params[:image],
                     price: params[:price], user_id: session[:user_id])
 
     if params[:start_date] < params[:end_date]
