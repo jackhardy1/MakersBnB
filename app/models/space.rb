@@ -38,7 +38,7 @@ class Space
   end
 
   def get_available_periods(space_id)
-    available_period = AvailablePeriod.get(space_id)
+    available_period = AvailablePeriod.first(space_id: space_id)
   end
 
   def format_date(date)

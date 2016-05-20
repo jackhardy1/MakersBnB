@@ -13,8 +13,8 @@ class Booking
 
   def send_confirmation_email
     RestClient.post "https://api:"+ENV['MAILGUN_API_KEY']+
-    "@api.mailgun.net/v3/sandbox33c818f0b5394c619eeced5f869ece17.mailgun.org/messages",
-    :from => "Thug Mansions <postmaster@sandbox33c818f0b5394c619eeced5f869ece17.mailgun.org>",
+    "@api.mailgun.net/v3/"+ENV['MAILGUN_SANDBOX_KEY']+".mailgun.org/messages",
+    :from => "Thug Mansions <postmaster@"+ENV['MAILGUN_SANDBOX_KEY']+".mailgun.org>",
     :to => "#{self.user.firstname}, #{self.user.email}",
     :subject => "You're going to #{self.space.name}!",
     :text => "Hi #{self.user.firstname}! Your request to book #{self.space.name} has been approved."
@@ -22,8 +22,8 @@ class Booking
 
   def send_denial_email
     RestClient.post "https://api:"+ENV['MAILGUN_API_KEY']+
-    "@api.mailgun.net/v3/sandbox33c818f0b5394c619eeced5f869ece17.mailgun.org/messages",
-    :from => "Thug Mansions <postmaster@sandbox33c818f0b5394c619eeced5f869ece17.mailgun.org>",
+    "@api.mailgun.net/v3/"+ENV['MAILGUN_SANDBOX_KEY']+".mailgun.org/messages",
+    :from => "Thug Mansions <postmaster@"+ENV['MAILGUN_SANDBOX_KEY']+".mailgun.org>",
     :to => "Macey, #{self.user.email}",
     :subject => "Booking request denied",
     :text => "Hi #{self.user.firstname}, Your request to book #{self.space.name} has been denied."

@@ -5,7 +5,7 @@ feature 'Enter user details on sign up' do
     user = User.first
     expect(user.firstname).to eq 'Matthew'
     expect(user.lastname).to eq 'Ward'
-    expect(user.email).to eq 'matthew@theinternet.com'
+    expect(user.email).to eq 'iammatthewward@gmail.com'
   end
 
   scenario 'Makes sure user has unique email' do
