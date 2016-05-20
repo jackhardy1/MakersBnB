@@ -17,7 +17,7 @@ describe Booking do
 
     it 'booking has a user' do
       our_booking = Booking.first
-      expect(our_booking.user.id).to eq 2
+      expect(our_booking.user.id).not_to eq nil
     end
 
     it 'booking has a space' do

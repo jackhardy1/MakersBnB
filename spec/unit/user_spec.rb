@@ -1,7 +1,7 @@
 require './app/models/user'
 
 describe User do
-  let(:user) { User.first(email: 'matthew@theinternet.com') }
+  let(:user) { User.first(email: 'iammatthewward@gmail.com') }
 
   before :each do
     enter_details_and_sign_up
@@ -13,7 +13,7 @@ describe User do
     end
 
     it 'authenticates user when given correct log in details' do
-      authenticated_user = User.authenticate('matthew@theinternet.com', 'password123')
+      authenticated_user = User.authenticate('iammatthewward@gmail.com', 'password123')
       expect(authenticated_user).to eq user
     end
 
