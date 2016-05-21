@@ -11,23 +11,22 @@ class Bnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-     user = session[:user_id]
-     space = Space.create(name: params[:name],
-                    description: params[:description],
-                    image: params[:image],
-                    price: params[:price], user_id: session[:user_id])
-
+       user = session[:user_id]
+       space = Space.create(name: params[:name],
+       description: params[:description],
+       image: params[:image],
+       price: params[:price],
+       user_id: session[:user_id])
     if params[:start_date] < params[:end_date]
-      space.available_periods << AvailablePeriod.create(
-      start_date: params[:start_date],
-      end_date: params[:end_date],
-      space_id: space.id)
-      redirect '/spaces'
+        space.available_periods << AvailablePeriod.create(
+        start_date: params[:start_date],
+        end_date: params[:end_date],
+        space_id: space.id)
+        redirect '/spaces'
     elsif params[:start_date] > params[:end_date]
-      flash[:notice] = 'End date should be after the start date'
-      redirect '/spaces/new'
+        flash[:notice] = 'End date should be after the start date'
+        redirect '/spaces/new'
     end
-
   end
 
   get '/spaces/:id' do
