@@ -21,6 +21,10 @@ class Space
 
   private
 
+  def get_all_bookings(space_id)
+    Booking.all(space_id: space_id)
+  end
+
   def get_confirmed_bookings(space_id)
     confirmed_bookings = []
     bookings = get_all_bookings(space_id)
@@ -28,10 +32,6 @@ class Space
     confirmed_bookings << booking.date if booking_confirmed?(booking)
     end
     confirmed_bookings
-  end
-
-  def get_all_bookings(space_id)
-    Booking.all(space_id: space_id)
   end
 
   def booking_confirmed?(booking)

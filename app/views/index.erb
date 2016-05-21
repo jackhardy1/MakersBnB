@@ -1,34 +1,10 @@
-<h1> WELCOME TO THUG MANSIONS </h1>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-
-    <% if @current_user %>
-    <h2>Hello <%= @current_user.firstname %>!</h2>
-    <form action="/sessions" method="post">
-      <input type='hidden' name='_method' value='delete'>
-      <button type="submit">Sign out</button>
-    </form>
-
-    <% else %>
-    <h2>Hello Guest!</h2>
-    <form action="/sign-in" method="get">
-      <button type="submit">Sign in</button>
-    </form>
-
-    <form action="/sign-up" method="get">
-      <button type="submit">Sign up</button>
-    </form>
-    <% end %>
-
-    <form action="/spaces" method="get">
-      <button type="submit">View spaces</button>
-    </form>
-
-  </body>
-  <iframe src="https://vine.co/v/iH9p32Aj90h/embed/simple?audio=1" width="300" height="300" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
-</html>
+<div class="container">
+  <div class="row">
+    <div class="title-content col-xs-12 text-center">
+      <div>
+        <h1 class="home-title vcenter">Welcome to Thug Mansions</h1>
+        <h3>Book the place of your dreams</h3>
+      </div>
+    </div>
+  </div>
+</div>
