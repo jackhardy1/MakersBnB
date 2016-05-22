@@ -1,7 +1,31 @@
-<form action="/users" method="post">
-  first name   <input type="text" name="firstname">
-  last name    <input type="text" name="lastname">
-  email        <input type="text" name="email">
-  password     <input type="password" name="password">
-               <input type="submit" value="Submit">
-</form>
+<div class='container'>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 sign-up-content sign-back text-center">
+      <h2> Please sign up</h2>
+      <form action="/users" method="post">
+        <div class="form-group">
+          <label for="firstname">First name</label>
+          <input type="text" name="firstname" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="lastname">Last name</label>
+          <input type="text" name="lastname" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control">
+        </div>
+
+        <input type="submit" value="Sign-up" class="btn">
+      </form>
+
+    </div>
+  </div>
+</div>

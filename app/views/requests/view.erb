@@ -1,37 +1,53 @@
-<ul id='requests'> <h1>Requests that I've made</h1>
-  <% if @current_user %>
-    <% @current_user.bookings.each do |booking| %>
-      <li>
-        Name of space: <%= booking.space.name %>
-        Name of guest: <%= booking.user.firstname %> <%= booking.user.lastname %>
-        Email of guest: <%= booking.user.email %>
-        Confirmed?: <%= booking.confirmed %>
+<div class='container'>
+  <div class="row">
+    <div class="col-sm-6">
+      <ul id='requests'> <h2>Requests that I've made</h2>
+        <% if @current_user %>
+          <% @current_user.bookings.each do |booking| %>
+            <li class="request">
+              <ul>
+                <li><span class="request-label">Name of space:</span> <%= booking.space.name %></li>
+                <li><span class="request-label">Name of guest:</span> <%= booking.user.firstname %> <%= booking.user.lastname %></li>
+                <li><span class="request-label">Email of guest:</span> <%= booking.user.email %></li>
+                <li><span class="request-label">Status:</span>
+                  <% if booking.confirmed %></li>
+                    Confirmed
+                  <% else %>
+                    Awaiting confirmation
+                  <% end %>
+              </ul>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <ul id='requests'> <h2>Requests for my spaces</h2>
+        <% if @current_user %>
+          <% @current_user.spaces.bookings.each do |booking| %>
+            <li class="request">
+              <ul>
+                <li><span class="request-label">Name of space:</span> <%= booking.space.name %></li>
+                <li><span class="request-label">Booking date:</span> <%= booking.date %></li>
+                <li><span class="request-label">Name of guest:</span> <%= booking.user.firstname %> <%= booking.user.lastname %></li>
+                <li><span class="request-label">Email of guest:</span> <%= booking.user.email %></li>
+                <% if booking.confirmed %>
+                <li><span class="request-label">Status</span>:
+                    Confirmed
+                  <% else %>
+                  <li>
+                    <form action='/request/:id' method="post">
+                      <input type="hidden" name="booking_id" value="<%= booking.id %>">
+                      <input class="btn" type="submit"  value="Confirm request">
+                    </form>
+                  <% end %>
+                </li>
+              </ul>
 
-        <form action='/request/:id' method="post">
-          <input type="hidden" name="booking_id" value="<%= booking.id %>">
-          <input type="submit"  value="view request details">
-        </form>
-
-      </li>
-      <% end %>
-    <% end %>
-</ul>
-
-<ul id='requests'> <h1>Requests for my spaces</h1>
-  <% if @current_user %>
-    <% @current_user.spaces.bookings.each do |booking| %>
-      <li>
-        Name of space: <%= booking.space.name %>
-        Name of guest: <%= booking.user.firstname %> <%= booking.user.lastname %>
-        Email of guest: <%= booking.user.email %>
-        Confirmed?: <%= booking.confirmed %>
-
-        <form action='/request/:id' method="post">
-          <input type="hidden" name="booking_id" value="<%= booking.id %>">
-          <input type="submit"  value="view request details">
-        </form>
-
-      </li>
-      <% end %>
-    <% end %>
-</ul>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

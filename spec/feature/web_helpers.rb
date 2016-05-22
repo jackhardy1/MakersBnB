@@ -4,7 +4,7 @@ def enter_details_and_sign_up
   fill_in :lastname, with: 'Ward'
   fill_in :email, with: 'iammatthewward@gmail.com'
   fill_in :password, with: 'password123'
-  click_button 'Submit'
+  click_button 'Sign-up'
 end
 
 def enter_details_and_sign_up_guest
@@ -13,21 +13,21 @@ def enter_details_and_sign_up_guest
   fill_in :lastname, with: 'hardy'
   fill_in :email, with: 'jackhardy1@gmail.com'
   fill_in :password, with: 'password123'
-  click_button 'Submit'
+  click_button 'Sign-up'
 end
 
 def log_in
   visit '/sign-in'
   fill_in :email, with: 'iammatthewward@gmail.com'
   fill_in :password, with: 'password123'
-  click_button 'Log in'
+  click_button 'Sign in'
 end
 
 def log_in_guest
   visit '/sign-in'
   fill_in :email, with: 'jackhardy1@gmail.com'
   fill_in :password, with: 'password123'
-  click_button 'Log in'
+  click_button 'Sign in'
 end
 
 def incorrect_email
@@ -36,14 +36,14 @@ def incorrect_email
   fill_in :lastname, with: 'Ward'
   fill_in :email, with: 'iammattgmail.com'
   fill_in :password, with: 'password123'
-  click_button 'Submit'
+  click_button 'Sign-up'
 end
 
 def incorrect_password
   visit '/sign-in'
   fill_in :email, with: 'iammatthewward@gmail.com'
   fill_in :password, with: 'boop'
-  click_button 'Log in'
+  click_button 'Sign in'
 end
 
 def list_a_space
@@ -58,16 +58,16 @@ end
 
 def list_space_and_sign_in_as_different_user
   enter_details_and_sign_up
-  click_button('View spaces')
+  click_button('Spaces')
   list_a_space
   click_button('Sign out')
   enter_details_and_sign_up_guest
-  click_button('View spaces')
+  click_button('Spaces')
 end
 
 def request_to_book_space_and_view_requests
   enter_details_and_sign_up
-  click_button('View spaces')
+  click_button('Spaces')
   click_button('view details')
   click_button('request to book')
   click_button('view requests')

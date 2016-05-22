@@ -7,10 +7,10 @@
 
   post '/request/:id' do
     session[:booking_id] = params[:booking_id]
-    redirect '/request/:id'
+    redirect '/request/confirm'
   end
 
-  get '/request/:id' do
+  get '/request/confirm' do
     current_user
     @booking = Booking.get(session[:booking_id])
     erb :'requests/confirm'

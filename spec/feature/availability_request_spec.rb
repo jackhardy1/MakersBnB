@@ -12,7 +12,7 @@ feature 'requesting to book' do
   scenario 'cannot book on booked date' do
     create_space
     enter_details_and_sign_up_guest
-    click_button('View spaces')
+    click_button('Spaces')
     click_button('view details')
     fill_in :date, with: '2016-05-19'
     click_button('request to book')
