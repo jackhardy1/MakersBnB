@@ -9,6 +9,7 @@ class Bnb < Sinatra::Base
        booking = Booking.create(user_id: session[:user_id], space_id: space.id, date: date)
        user.bookings << booking
        space.bookings << booking
+      #  space.send_confirmation_email
        redirect '/spaces'
      else
        flash[:notice] = 'Booking not available. Choose another date!'

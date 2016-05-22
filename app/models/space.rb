@@ -11,6 +11,15 @@ class Space
   has n, :bookings
   has n, :available_periods
 
+  # def send_confirmation_email
+  #   RestClient.post "https://api:"+ENV['MAILGUN_API_KEY']+
+  #   "@api.mailgun.net/v3/"+ENV['MAILGUN_SANDBOX_KEY']+".mailgun.org/messages",
+  #   :from => "Thug Mansions <postmaster@"+ENV['MAILGUN_SANDBOX_KEY']+".mailgun.org>",
+  #   :to => "#{self.user.firstname}, #{self.user.email}",
+  #   :subject => "A guest has requested your place",
+  #   :text => "Hi #{self.user.firstname}! A guest has requested to book your place. Check your requests!."
+  # end
+
   def available?(booking_date, space_id)
     date = format_date(booking_date)
     confirmed_bookings = get_confirmed_bookings(space_id)

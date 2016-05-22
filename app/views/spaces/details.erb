@@ -12,7 +12,6 @@
     <br>
     <img src="<%= @space.image %>" style="width:304px;height:228px;">
 
-
   <% if @current_user.id != @space.user_id %>
     <form action="/booking/new" method="post">
       <input type="hidden" name="space_id" value="<%= @space.id %>">
