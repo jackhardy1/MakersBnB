@@ -1,28 +1,16 @@
-/*
-  .jambothron{
-    background-color: #d5d5e7;
-    color: white;
-  }
-  .tab-container {
-    background-color: 1px solid #add;
-    border-right: 1px solid #add;
-    padding-bottom: 1px solid #add;
-  }
-  .nav-tabs {
-    margin-bottom: 0;
-  }
-.form-group{
-
-}*/
 body {
   margin-top: 80px;
-  font-family: Ubuntu, sans-serif;
+  font-family: Lato, sans-serif;
   color: #FFF;
   text-shadow: 1px 1px 4px #000;
 }
 
 input {
   color: #000;
+}
+
+.thin-text {
+  font-weight: 100;
 }
 
 #background {
@@ -40,8 +28,13 @@ input {
     background-size: cover;
 }
 
+#confirm-request {
+  margin-top: 100px;
+}
+
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 .navbar {
@@ -53,6 +46,10 @@ background-color: rgba(0, 0, 0, 0.7);
 margin-bottom: 10px;
 padding: 20px 0;
 border-radius: 5px;
+}
+
+.request ul {
+  margin-left: 20px;
 }
 
 .navbar-nav {
@@ -111,6 +108,10 @@ a, a:link, a:visited, a:hover {
 
 #main-header a {
   color: #FFF;
+}
+
+#confirm-btn {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 767px) {

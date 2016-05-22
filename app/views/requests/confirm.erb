@@ -1,15 +1,23 @@
-<%= @booking.user.firstname %>
-<br>
-<%= @booking.user.email %>
-<br>
-<% if @current_user.id != @booking.user_id %>
-<form action="/requests/confirm" method="post">
-  <input type="hidden" name="booking_id" value="<%= @booking.id %>">
-  <input type="submit"  value="confirm request">
-</form>
+<div class='container'>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 sign-up-content sign-back text-center">
+      <ul id="confirm-request" class="request">
+        <li><span class="request-label">Name of guest:</span> <%= @booking.user.firstname %></li>
+        <li><span class="request-label">Email of guest:</span> <%= @booking.user.email %></li>
+        <li><span class="request-label">Booking date:</span> <%= @booking.date %></li>
+      <% if @current_user.id != @booking.user_id %>
+      <form id="confirm-btn" action="/requests/confirm" method="post">
+        <input type="hidden" name="booking_id" value="<%= @booking.id %>">
+        <input class="btn" type="submit"  value="confirm request">
+      </form>
 
-<form action="/requests/deny" method="post">
-  <input type="hidden" name="booking_id" value="<%= @booking.id %>">
-  <input type="submit"  value="deny request">
-</form>
-<% end %>
+      <form action="/requests/deny" method="post">
+        <input type="hidden" name="booking_id" value="<%= @booking.id %>">
+        <input class="btn" type="submit"  value="deny request">
+      </form>
+      <% end %>
+
+      </ul>
+    </div>
+  </div>
+</div>

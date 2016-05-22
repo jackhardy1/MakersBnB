@@ -15,12 +15,6 @@
                   <% else %>
                     Awaiting confirmation
                   <% end %>
-                <!-- <li>
-                  <form action='/request/:id' method="post">
-                    <input type="hidden" name="booking_id" value="<%= booking.id %>">
-                    <input class="btn" type="submit"  value="view request details">
-                  </form>
-                </li> -->
               </ul>
             </li>
           <% end %>
@@ -34,6 +28,7 @@
             <li class="request">
               <ul>
                 <li><span class="request-label">Name of space:</span> <%= booking.space.name %></li>
+                <li><span class="request-label">Booking date:</span> <%= booking.date %></li>
                 <li><span class="request-label">Name of guest:</span> <%= booking.user.firstname %> <%= booking.user.lastname %></li>
                 <li><span class="request-label">Email of guest:</span> <%= booking.user.email %></li>
                 <% if booking.confirmed %>
