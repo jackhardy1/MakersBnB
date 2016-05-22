@@ -1,24 +1,29 @@
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end %>
+<div class='container'>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 text-center request listing">
+      <div class="row">
+        <div class="col-xs-6">
+          <ul>
+            <li><span class="request-label">Property name: </span>
+              <%= @space.name %></li>
+            <li><span class="request-label">Description: </span>
+              <%= @space.description %></li>
+            <li><span class="request-label">Price per night: </span>
+              <%= @space.price %></li>
+          </ul>
+        </div>
 
-<ul id='spaces/details'>
-  <li>
-    Name of your property: <%= @space.name %>
-    <br>
-    Description: <%= @space.description %>
-    <br>
-    Price per night: <%= @space.price %>
-    <br>
-    <img src="<%= @space.image %>" style="width:304px;height:228px;">
+        <div class="col-xs-6">
+          <img class="listing-image" src="<%= @space.image %>">
+        </div>
 
   <% if @current_user.id != @space.user_id %>
     <form action="/booking/new" method="post">
       <input type="hidden" name="space_id" value="<%= @space.id %>">
       <input type='date' name='date' min='<%= DateTime.now.to_date %>' required>
-      <input type="submit"  value="request to book">
+      <input class="btn" type="submit"  value="Request to book">
     </form>
   <% end %>
 
-  </li>
-</ul>
+
+</div>

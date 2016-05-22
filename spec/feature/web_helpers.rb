@@ -47,30 +47,30 @@ def incorrect_password
 end
 
 def list_a_space
-  click_button('list a space')
+  click_button('List a space')
   fill_in :name, with: 'makers'
   fill_in :description, with: 'makers'
   fill_in :price, with: 10
   fill_in :start_date, with: '2017-05-18'
   fill_in :end_date, with: '2017-05-20'
-  click_button 'add space'
+  click_button 'Add space'
 end
 
 def list_space_and_sign_in_as_different_user
   enter_details_and_sign_up
-  click_button('Spaces')
+  click_link('Spaces')
   list_a_space
   click_button('Sign out')
   enter_details_and_sign_up_guest
-  click_button('Spaces')
+  click_link('Spaces')
 end
 
 def request_to_book_space_and_view_requests
   enter_details_and_sign_up
-  click_button('Spaces')
-  click_button('view details')
-  click_button('request to book')
-  click_button('view requests')
+  click_link('Spaces')
+  click_button('View details')
+  click_button('Request to book')
+  click_link('Requests')
 end
 
 def create_space

@@ -1,37 +1,32 @@
-<% if @current_user %>
-  <h2>Hello <%= @current_user.firstname %>!</h2>
-  <form action="/sessions" method="post">
-    <input type='hidden' name='_method' value='delete'>
-    <button type="submit">Sign out</button>
-  </form>
-<% end %>
-
-<ul id='spaces'>
-  <% Space.reverse_each do |space| %>
-    <li>
-      Name of your property: <%= space.name %>
-      Description: <%= space.description %>
-      Price per night: <%= space.price %>
-      <form action="/spaces/<%= space.id %>" method="get">
-        <input type="hidden" name="space_id" value="<%= space.id %>">
-        <input type="submit" name="view details" value="view details">
+<div class='container'>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+      <h2 class="text-center" >Find your perfect place to stay</h2>
+      <form action="/spaces/available" method="post">
+        <h3>Search by date:</h3>
+        <input type="date" name="date" min="<%= DateTime.now.to_date %>" class="form-control" required>
+        <input class="btn btn-spaces" type='submit' value='Find available spaces'>
       </form>
-    </li>
-  <% end %>
-</ul>
+      <% if @current_user %>
+        <form action="/spaces/new" method="get">
+          <input class="btn" type="submit"  value="List a space">
+        </form>
+      <% end %>
 
-<% if @current_user %>
-  <form action="/spaces/new" method="get">
-    <input type="submit"  value="list a space">
-  </form>
+        <ul id='spaces'>
+          <h3>All spaces</h3>
+          <% Space.reverse_each do |space| %>
+            <li class="request">
+              <ul>
+                <li><span class="request-label">Name of your property:</span> <%= space.name %></li>
+                <li><span class="request-label">Description:</span> <%= space.description %></li>
+                <li><span class="request-label">Price per night:</span> £<%= space.price %></li>
+              </ul>
 
-  <form action="/requests" method="get">
-    <input type="submit"  value="view requests">
-  </form>
-<% end %>
-
-  <form action="/spaces/available" method="post">
-    <label for='date'>Search by date:</label>
-    <input type='date' name='date' min='<%= DateTime.now.to_date %>'>
-    <input type='submit' value='find available spaces'>
-  </form>
+              <form action="/spaces/<%= space.id %>" method="get">
+                <input type="hidden" name="space_id" value="<%= space.id %>">
+                <input class="btn" type="submit" name="view details" value="View details">
+              </form>
+            </li>
+          <% end %>
+        </ul>

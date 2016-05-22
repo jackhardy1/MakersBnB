@@ -3,9 +3,9 @@ require './app/models/user'
 
 feature 'A registered user can log in' do
 
-  scenario 'Is greeted upon log in' do
+  scenario 'Can sign in as a user' do
     enter_details_and_sign_up
-    expect(page).to have_content 'Hello Matthew!'
+    expect(page).to have_current_path '/'
   end
 
   scenario 'Gets error if wrong login details' do
