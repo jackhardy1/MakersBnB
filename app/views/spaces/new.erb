@@ -1,23 +1,41 @@
-<h1>spaces go here</h1>
-<form action="/spaces/new" method="post">
+<div class='container'>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 sign-up-content sign-back text-center">
+      <h2>Add your new space</h2>
+      <form action="/spaces/new" method="post">
+        <div class="form-group">
+          <label for="name">Name of your space</label>
+          <input type="text" name="name" class="form-control" required>
+        </div>
 
-  <label for="name">Name</label>
-  <input type='text' name='name'>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" name="description" class="form-control" required>
+        </div>
 
-  <label for="description">Description</label>
-  <input type='text' name='description'>
+        <div class="form-group">
+          <label for="price">Price per night (£)</label>
+          <input type="text" name="price" class="form-control" required>
+        </div>
 
-  <label for="price">Price</label>
-  <input type='text' name='price'>
+        <div class="form-group">
+          <label for="image">Add image URL</label>
+          <input type="text" name="image" class="form-control">
+        </div>
 
-  <label for="image">Add image URL</label>
-  <input type="text" name="image" >
+        <div class="form-group">
+          <label for="start_date">Available from:</label>
+          <input type='date' name='start_date' min='<%= DateTime.now.to_date %>' required>
+        </div>
 
-  <label for='start_date'>Available on:</label>
-  <input type='date' name='start_date' min='<%= DateTime.now.to_date %>'>
+        <div class="form-group">
+          <label for="end_date">Available until:</label>
+          <input type='date' name='end_date' min='<%= DateTime.now.to_date %>' required>
+        </div>
 
-  <label for='end_date'>Available until:</label>
-  <input type='date' name='end_date'>
-  <input type='submit' value='add space'>
+        <input type="submit" value="Add space" class="btn">
+      </form>
 
-</form>
+    </div>
+  </div>
+</div>

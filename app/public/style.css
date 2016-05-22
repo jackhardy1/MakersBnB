@@ -3,6 +3,8 @@ body {
   font-family: Lato, sans-serif;
   color: #FFF;
   text-shadow: 1px 1px 4px #000;
+  font-weight: 200;
+  font-size: 1.75em;
 }
 
 input {
@@ -11,6 +13,10 @@ input {
 
 .thin-text {
   font-weight: 100;
+}
+
+.listing {
+  margin-top: 70px;
 }
 
 #background {
@@ -65,6 +71,15 @@ border-radius: 5px;
 .btn, .btn a {
   color: #FFF;
   background-color: #686868;
+}
+
+.btn-spaces {
+  margin: 10px;
+}
+
+.listing-image {
+  width:304px;
+  height:228px;
 }
 
 .glyphicon-usd {

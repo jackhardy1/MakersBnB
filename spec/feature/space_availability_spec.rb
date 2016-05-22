@@ -8,11 +8,11 @@ feature 'User can add available dates to space' do
     fill_in :price, with: 20
     fill_in :start_date, with: '2017-05-18'
     fill_in :end_date, with: '2017-05-20'
-    click_button 'add space'
+    click_button 'Add space'
 
     expect(page).to have_content 'Makers Academy'
     expect(page).to have_content 'It is a space'
-    expect(page).to have_content 'Price per night: 20'
+    expect(page).to have_content 'Price per night: £20'
   end
 
   scenario 'User enters end date earlier than start date' do
@@ -23,7 +23,7 @@ feature 'User can add available dates to space' do
     fill_in :price, with: 20
     fill_in :start_date, with: '2017-05-20'
     fill_in :end_date, with: '2017-05-01'
-    click_button 'add space'
+    click_button 'Add space'
 
     expect(page).to have_content 'End date should be after the start date'
   end
