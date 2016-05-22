@@ -19,9 +19,5 @@ class Bnb < Sinatra::Base
     current_user
     erb :index
   end
-
-
-
-
   # start the server if ruby file executed directly
 end

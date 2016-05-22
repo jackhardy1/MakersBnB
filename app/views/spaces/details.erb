@@ -5,9 +5,12 @@
 <ul id='spaces/details'>
   <li>
     Name of your property: <%= @space.name %>
+    <br>
     Description: <%= @space.description %>
+    <br>
     Price per night: <%= @space.price %>
-    <img src="<%= @space.image %>" alt="HTML5 Icon" style="width:128px;height:128px;">
+    <br>
+    <img src="<%= @space.image %>" style="width:304px;height:228px;">
 
   <% if @current_user.id != @space.user_id %>
     <form action="/booking/new" method="post">

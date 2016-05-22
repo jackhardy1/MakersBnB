@@ -29,3 +29,9 @@
     <input type="submit"  value="view requests">
   </form>
 <% end %>
+
+  <form action="/spaces/available" method="post">
+    <label for='date'>Search by date:</label>
+    <input type='date' name='date' min='<%= DateTime.now.to_date %>'>
+    <input type='submit' value='find available spaces'>
+  </form>
