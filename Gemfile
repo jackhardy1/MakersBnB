@@ -11,6 +11,7 @@ gem 'sinatra-flash'
 gem 'rest-client'
 gem 'sinatra-partial'
 gem 'dotenv'
+gem 'twilio-ruby'
 
 
 group :test do
