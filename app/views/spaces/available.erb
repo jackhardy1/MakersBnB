@@ -1,18 +1,29 @@
-<ul id='avail_spaces'>
-  <% @spaces.each do |space| %>
-    <li>
-      Name of property: <%= space.name %>
-      <br>
-      Description: <%= space.description %>
-      <br>
-      Price per night: <%= space.price %>
-      <br>
-        <img src="<%= space.image %>" style="width:304px;height:228px;">
-        <form action="/booking/new" method="post">
-          <input type="hidden" name="space_id" value="<%= space.id %>">
-          <input type='date' name='date' min='<%= DateTime.now.to_date %>' required>
-          <input type="submit"  value="request to book">
-        </form>
-    </li>
-  <% end %>
-</ul>
+<div class='container'>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 text-center listing">
+      <% @spaces.each do |space| %>
+      <ul>
+        <li class="request">
+          <ul>
+            <li>
+              <span class="request-label">Name of property: </span>
+              <%= space.name %></li>
+              <li>
+                <span class="request-label">Description: </span>
+                <%= space.description %></li>
+              <li>
+                <span class="request-label">Price per night: </span>
+                <%= space.price %></li>
+              </ul>
+            <img src="<%= space.image %>" style="width:304px;height:228px;">
+            <form action="/booking/new" method="post">
+              <input type="hidden" name="space_id" value="<%= space.id %>">
+              <input type='date' name='date' min='<%= DateTime.now.to_date %>' required>
+              <input type="submit"  value="request to book">
+            </form>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
