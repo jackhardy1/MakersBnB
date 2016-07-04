@@ -1,5 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/elibar-uk/MakersBnB.png?label=ready&title=Ready)](https://waffle.io/elibar-uk/MakersBnB)
 
+[![Build Status](https://travis-ci.org/jackhardy1/MakersBnB.svg?branch=master)](https://travis-ci.org/jackhardy1/MakersBnB)
+
 # MakersBnB
 Makers Academy week 6 challenge
 We built a clone of AirBnB in less than a week, using Ruby, Sinatra, PostrgreSQL, DataMapper, which was test-driven with RSpec and Capybara.
@@ -18,7 +20,7 @@ See our MakersBnB clone hosted on Heroku on the following link: https://thugmans
 - $ bundle install
 - $ rake db:create
 - $ rake db:migrate
-- $ rspec
+- $ rackup
 
 
 
